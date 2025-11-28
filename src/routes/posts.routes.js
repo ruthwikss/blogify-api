@@ -1,13 +1,10 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-const posts = [
-  { id: 1, title: "First Post", content: "Hello from Blogify!" }
-];
+// Import controller
+const postController = require('../controllers/posts.controller');
 
-// GET /api/v1/posts
-router.get("/", (req, res) => {
-  res.json(posts);
-});
+// Use controller for GET /
+router.get('/', postController.getAllPosts);
 
 module.exports = router;
